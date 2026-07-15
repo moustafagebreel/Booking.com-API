@@ -19,7 +19,7 @@ class GateDefineMiddleware
     {
         if (auth()->check()) {
             $permissions = Permission::whereHas('roles', function($query) {
-                $query->where('id', auth()->user()->role_id);
+                $query->where('roles.id', auth()->user()->role_id);
             })->get();
  
             foreach ($permissions as $permission) {
