@@ -4,7 +4,6 @@ namespace Tests\Feature;
 
 use App\Models\Role;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 
 class AuthTest extends TestCase
@@ -54,16 +53,6 @@ class AuthTest extends TestCase
  
         $response->assertStatus(200)->assertJsonStructure([
             'access_token',
-        ]);
-    }
-        protected function setUp(): void
-    {
-        parent::setUp();
-
-        Role::query()->insert([
-            ['id' => Role::ROLE_ADMINISTRATOR, 'name' => 'administrator'],
-            ['id' => Role::ROLE_OWNER, 'name' => 'owner'],
-            ['id' => Role::ROLE_USER, 'name' => 'user'],
         ]);
     }
 }
