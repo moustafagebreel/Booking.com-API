@@ -6,6 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Role extends Model
 {
+
+    const ROLE_ADMINISTRATOR = 1;
+    const ROLE_OWNER = 2;
+    const ROLE_USER = 3;
     protected $fillable = ['name'];
 
 
@@ -13,4 +17,5 @@ class Role extends Model
     {
         return $this->belongsToMany(Permission::class);
     }
+
 }
